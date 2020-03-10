@@ -1,5 +1,7 @@
 import React from 'react';
-import './style.css';
+import '../../public/style.css';
+
+import GoogleLogin from './GoogleLogin.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +13,13 @@ class App extends React.Component {
   render() {
     return (
       <div className='main'>
-        <h1 className='header-1'>Friends5238</h1>
+        <div>
+          <h1 className='header-1'>Friends5238</h1>
+
+        </div>
+        {/* <div>
+          <GoogleLogin></GoogleLogin>
+        </div> */}
       </div>
     );
   }
