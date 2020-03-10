@@ -5,6 +5,7 @@ import { CLIENT_ID } from '../../constants';
 
 const successResponseGoogle = async (response) => {
   await console.log(response);
+  await console.log(`hello ${response.Qt.vW}!!!`)
 }
 
 const failureResponseGoogle = async (response) => {
