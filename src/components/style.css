@@ -1,4 +1,13 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 100%;
+  align-items: center;
+  background-color: pink;
+  justify-content: center;
+}
+
 .header-1 {
-  border: 1px solid blue;
   color: blue;
 }

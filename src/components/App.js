@@ -10,8 +10,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 className='header-1'>Hello from App.js</h1>
+      <div className='main'>
+        <h1 className='header-1'>Friends5238</h1>
       </div>
     );
   }
