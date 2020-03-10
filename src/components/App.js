@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../public/style.css';
 
-import GoogleLogin from './GoogleLogin.jsx'
+import MyButton from './GoogleLogin.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class App extends React.Component {
           <h1 className='header-1'>Friends5238</h1>
 
         </div>
-        {/* <div>
-          <GoogleLogin></GoogleLogin>
-        </div> */}
+        <div>
+          <MyButton></MyButton>
+        </div>
       </div>
     );
   }
