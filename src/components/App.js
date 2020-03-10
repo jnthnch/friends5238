@@ -22,10 +22,10 @@ class App extends React.Component {
     return (
       <div className='main'>
         <div>
-          <h1 className='header-1'>52.38%</h1>
+          <h1 className='header-1'>52.38</h1>
         </div>
         <div>
-          <GoogleLoginButton setIsSignedIn={this.setIsSignedIn} name={'jon'}></GoogleLoginButton>
+          <GoogleLoginButton setIsSignedIn={this.setIsSignedIn}></GoogleLoginButton>
         </div>
       </div >
     );
