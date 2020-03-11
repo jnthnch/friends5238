@@ -1,4 +1,5 @@
 import React from 'react';
+import store from 'store';
 import GoogleLogin, { useGoogleLogin } from 'react-google-login';
 
 import { CLIENT_ID } from '../../constants';
@@ -6,10 +7,12 @@ import { CLIENT_ID } from '../../constants';
 const successResponseGoogle = async (response) => {
   await console.log(response);
   await console.log(`hello ${response.Qt.vW}!!!`)
+  store.set('isLoggedIn', true)
 }
 
 const failureResponseGoogle = async (response) => {
   await console.log('failed', response);
+  store.set('isLoggedIn', false)
 }
 
 const GoogleLoginButton = (props) => {
