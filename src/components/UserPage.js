@@ -3,7 +3,7 @@ import store from 'store';
 import './UserPage.css';
 
 import isLoggedIn from '../helpers/isLoggedIn'
-import GameBoard from './GameBoard';
+import GamesList from './GamesList';
 
 const UserPage = (props) => {
   const { history } = props
@@ -22,7 +22,7 @@ const UserPage = (props) => {
       <h1>User Page</h1>
       <div className="action-main">
         <h1>Jon's picks</h1>
-        <GameBoard></GameBoard>
+        <GamesList></GamesList>
         <div>results summary</div>
         <div>pending picks</div>
       </div>
