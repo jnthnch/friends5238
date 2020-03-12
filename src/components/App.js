@@ -1,32 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "@babel/polyfill";
 import '../../public/style.css';
+import { Route, Link, Switch, withRouter } from "react-router-dom";
 
-import GoogleLoginButton from './GoogleLoginButton.jsx'
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import UserPage from './UserPage';
+import NotFoundPage from './NotFoundPage';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isSignedIn: false
-    };
-
-    this.setIsSignedIn = this.setIsSignedIn.bind(this);
-  }
-
-  setIsSignedIn() {
-    this.setState({ isSignedIn: true }, () => { console.log('isSignedIn ==> ', this.state.isSignedIn) })
   }
 
   render() {
     return (
       <div className='main'>
-        <div>
-          <h1 className='header-1'>52.38</h1>
-        </div>
-        <div>
-          <GoogleLoginButton setIsSignedIn={this.setIsSignedIn}></GoogleLoginButton>
-        </div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">Sign In Page</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/user-page" component={UserPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
       </div >
     );
   }

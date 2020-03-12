@@ -13,13 +13,16 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-google-login": "^5.1.1"
+    "react-google-login": "^5.1.1",
+    "react-router-dom": "^5.1.2",
+    "store": "^2.0.12"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
