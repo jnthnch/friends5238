@@ -17,11 +17,13 @@ const UserPage = (props) => {
     history.push('/login');
   };
 
+  const userName = store.get('user') ? store.get('user').name : 'user';
+
   return (
     <div>
       <h1>User Page</h1>
       <div className="action-main">
-        <h1>Jon's picks</h1>
+        <h1>{userName}'s picks</h1>
         <GamesList></GamesList>
         <div>results summary</div>
         <div>pending picks</div>

@@ -4,9 +4,14 @@ import GoogleLogin, { useGoogleLogin } from 'react-google-login';
 
 import { GOOGLE_CLIENT_ID } from '../../constants';
 
+const setUserName = async (name) => {
+  await store.set('user', { name })
+}
+
 const successResponseGoogle = async (response) => {
   await console.log(response);
   await console.log(`hello ${response.Qt.vW}!!!`)
+  await setUserName(response.Qt.vW)
   store.set('isLoggedIn', true)
 }
 
