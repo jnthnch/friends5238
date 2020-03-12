@@ -2,7 +2,7 @@ import React from 'react';
 import store from 'store';
 import GoogleLogin, { useGoogleLogin } from 'react-google-login';
 
-import { CLIENT_ID } from '../../constants';
+import { GOOGLE_CLIENT_ID } from '../../constants';
 
 const successResponseGoogle = async (response) => {
   await console.log(response);
@@ -19,7 +19,7 @@ const GoogleLoginButton = (props) => {
   const { setIsSignedIn } = props;
   return (
     <GoogleLogin
-      clientId={CLIENT_ID}
+      clientId={GOOGLE_CLIENT_ID}
       render={renderProps => (
         <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in to Google</button>
       )}

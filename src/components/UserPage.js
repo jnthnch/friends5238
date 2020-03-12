@@ -1,7 +1,9 @@
 import React from 'react';
 import store from 'store';
+import './UserPage.css';
 
 import isLoggedIn from '../helpers/isLoggedIn'
+import GameBoard from './GameBoard';
 
 const UserPage = (props) => {
   const { history } = props
@@ -17,13 +19,13 @@ const UserPage = (props) => {
 
   return (
     <div>
-      <h1>User Page!!!!</h1>
-      <iframe
-        src="https://giphy.com/embed/VvQvOFqPjZLi"
-        width="100"
-        height="100"
-      />
-      <p>So tasty!</p>
+      <h1>User Page</h1>
+      <div className="action-main">
+        <h1>Jon's picks</h1>
+        <GameBoard></GameBoard>
+        <div>results summary</div>
+        <div>pending picks</div>
+      </div>
       <button onClick={handleLogout}>
         Sign Out
     </button>
