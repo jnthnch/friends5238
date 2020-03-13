@@ -10,7 +10,7 @@ const sport_key = 'basketball_ncaab'
 
 const styles = {
   gameHeader: { display: 'flex', justifyContent: 'space-between' },
-  gameBody: { display: 'flex', justifyContent: 'space-between' }
+  gameBody: {}
 }
 
 class GamesList extends React.Component {
@@ -25,9 +25,9 @@ class GamesList extends React.Component {
 
   componentDidMount() {
     this.setState({
+      games: gamesList_mockData,
       isLoaded: true,
-      games: gamesList_mockData
-    })
+    }, () => { console.log('setState callback', this.state) })
   }
 
   render() {
@@ -45,14 +45,29 @@ class GamesList extends React.Component {
               <div>Upcoming</div>
               <div>Spread</div>
             </li>
-            <li style={{ listStyleType: 'none' }}>
+            {/* <li style={{ listStyleType: 'none' }}>
               <SingleGame></SingleGame>
-            </li>
-            {/* {games.map((game, idx) => (
-              <li key={idx}>
-                {game.teams[0]} {game.teams[1]}
-              </li>
-            ))} */}
+            </li> */}
+            {games.map((game, idx) => {
+              // console.log('game sites', game.sites[0].odds.spreads.points)
+              // console.log('game spread', game.sites[0].odds.spreads.points)
+              const homeTeam = game.teams[0];
+              const awayTeam = game.teams[1];
+              const homeSpread = game.sites[0].odds.spreads.points[0]
+              const awaySpread = game.sites[0].odds.spreads.points[1]
+              return (
+                <li key={idx} style={{ listStyleType: 'none' }}>
+                  <SingleGame
+                    homeTeam={homeTeam}
+                    awayTeam={awayTeam}
+                    homeSpread={homeSpread}
+                    awaySpread={awaySpread}
+                  ></SingleGame>
+                </li>
+              )
+            }
+
+            )}
           </ul>
         </div>
       );

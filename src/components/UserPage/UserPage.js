@@ -20,16 +20,16 @@ const UserPage = (props) => {
   const userName = store.get('user') ? store.get('user').name : 'user';
 
   return (
-    <div>
+    <div style={{ height: '100%', width: '100%' }}>
       <h1>User Page - Welcome {userName}</h1>
-      <div className="action-main">
+      <div className="user-page__main">
         <GamesList></GamesList>
         <div>results summary</div>
         <div>pending picks</div>
       </div>
       <button onClick={handleLogout}>
         Sign Out
-    </button>
+      </button>
     </div>
   )
 };

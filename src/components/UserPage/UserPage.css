@@ -1,6 +1,8 @@
-.action-main {
-  background-color: aqua;
+.user-page__main {
+  display: flex;
+  background-color:orange;
   height: 100%;
   width: 100%;
-  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }

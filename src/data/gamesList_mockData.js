@@ -3,13 +3,31 @@ const gamesList_mockData = [
     "sport_key": "basketball_ncaab",
     "sport_nice": "NCAAB",
     "teams": [
-      "N Colorado Bears",
-      "Southern Utah Thunderbirds"
+      "Coppin St Eagles",
+      "Norfolk St Spartans"
     ],
-    "commence_time": 1584055800,
-    "home_team": "N Colorado Bears",
-    "sites": [],
-    "sites_count": 0
+    "commence_time": 1584059400,
+    "home_team": "Norfolk St Spartans",
+    "sites": [
+      {
+        "site_key": "gtbets",
+        "site_nice": "GTbets",
+        "last_update": 1583993101,
+        "odds": {
+          "spreads": {
+            "odds": [
+              1.917,
+              1.917
+            ],
+            "points": [
+              "6.5",
+              "-6.5"
+            ]
+          }
+        }
+      }
+    ],
+    "sites_count": 1
   },
   {
     "sport_key": "basketball_ncaab",
@@ -206,36 +224,6 @@ const gamesList_mockData = [
       }
     ],
     "sites_count": 5
-  },
-  {
-    "sport_key": "basketball_ncaab",
-    "sport_nice": "NCAAB",
-    "teams": [
-      "Coppin St Eagles",
-      "Norfolk St Spartans"
-    ],
-    "commence_time": 1584059400,
-    "home_team": "Norfolk St Spartans",
-    "sites": [
-      {
-        "site_key": "gtbets",
-        "site_nice": "GTbets",
-        "last_update": 1583993101,
-        "odds": {
-          "spreads": {
-            "odds": [
-              1.917,
-              1.917
-            ],
-            "points": [
-              "6.5",
-              "-6.5"
-            ]
-          }
-        }
-      }
-    ],
-    "sites_count": 1
   },
   {
     "sport_key": "basketball_ncaab",

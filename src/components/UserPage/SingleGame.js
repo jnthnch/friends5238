@@ -21,7 +21,7 @@ const styles = {
 
 }
 const SingleGame = (props) => {
-  const { homeTeam, awayTeam } = props;
+  const { homeTeam, awayTeam, homeSpread, awaySpread } = props;
 
   return (
     <div style={styles.main}>
@@ -30,8 +30,8 @@ const SingleGame = (props) => {
         <div>{homeTeam}</div>
       </div>
       <div style={styles.spreads}>
-        <div>-10</div>
-        <div>+10</div>
+        <div>{awaySpread}</div>
+        <div>{homeSpread}</div>
       </div>
     </div>
   )
@@ -40,11 +40,15 @@ const SingleGame = (props) => {
 SingleGame.propTypes = {
   homeTeam: PropTypes.string,
   awayTeam: PropTypes.string,
+  homeSpread: PropTypes.string,
+  awaySpread: PropTypes.string
 }
 
 SingleGame.defaultProps = {
   homeTeam: 'Home Team Here',
-  awayTeam: 'Away Team Here'
+  awayTeam: 'Away Team Here',
+  homeSpread: 'no spread',
+  awaySpread: 'no spread'
 }
 
 export default SingleGame;
