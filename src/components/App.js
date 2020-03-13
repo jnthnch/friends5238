@@ -5,7 +5,7 @@ import { Route, Link, Switch, withRouter } from "react-router-dom";
 
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
-import UserPage from './UserPage';
+import UserPage from '../components/UserPage/UserPage';
 import NotFoundPage from './NotFoundPage';
 
 class App extends React.Component {
