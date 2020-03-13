@@ -9,8 +9,27 @@ const axios = require('axios')
 const sport_key = 'basketball_ncaab'
 
 const styles = {
-  gameHeader: { display: 'flex', justifyContent: 'space-between' },
-  gameBody: {}
+  gamesList: {
+    height: '100%',
+    width: '25%',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'pink',
+    paddingLeft: '5em',
+    paddingRight: '5em'
+  },
+  unorderedList: {
+    paddingLeft: 0
+  },
+  gameColumnNames: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  gameBody: {},
+  singleGameListItem: {
+    listStyleType: 'none',
+    paddingTop: 30
+  }
 }
 
 class GamesList extends React.Component {
@@ -38,25 +57,20 @@ class GamesList extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className='gamesList_main'>
+        <div style={styles.gamesList}>
           <h1>List of Games</h1>
-          <ul>
-            <li style={styles.gameHeader}>
+          <ul style={styles.unorderedList}>
+            <li style={styles.gameColumnNames}>
               <div>Upcoming</div>
               <div>Spread</div>
             </li>
-            {/* <li style={{ listStyleType: 'none' }}>
-              <SingleGame></SingleGame>
-            </li> */}
             {games.map((game, idx) => {
-              // console.log('game sites', game.sites[0].odds.spreads.points)
-              // console.log('game spread', game.sites[0].odds.spreads.points)
               const homeTeam = game.teams[0];
               const awayTeam = game.teams[1];
               const homeSpread = game.sites[0].odds.spreads.points[0]
               const awaySpread = game.sites[0].odds.spreads.points[1]
               return (
-                <li key={idx} style={{ listStyleType: 'none' }}>
+                <li key={idx} style={styles.singleGameListItem}>
                   <SingleGame
                     homeTeam={homeTeam}
                     awayTeam={awayTeam}
@@ -66,7 +80,6 @@ class GamesList extends React.Component {
                 </li>
               )
             }
-
             )}
           </ul>
         </div>
