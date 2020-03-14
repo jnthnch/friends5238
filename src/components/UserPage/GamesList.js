@@ -46,7 +46,7 @@ class GamesList extends React.Component {
     this.setState({
       games: gamesList_mockData,
       isLoaded: true,
-    }, () => { console.log('setState callback', this.state) })
+    }, () => { })
   }
 
   render() {

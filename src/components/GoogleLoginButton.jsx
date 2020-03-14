@@ -9,8 +9,8 @@ const setUserName = async (name) => {
 }
 
 const successResponseGoogle = async (response) => {
-  await console.log(response);
-  await console.log(`hello ${response.Qt.vW}!!!`)
+  // await console.log(response);
+  // await console.log(`hello ${response.Qt.vW}!!!`)
   await setUserName(response.Qt.vW)
   store.set('isLoggedIn', true)
 }
@@ -21,15 +21,15 @@ const failureResponseGoogle = async (response) => {
 }
 
 const GoogleLoginButton = (props) => {
-  const { setIsSignedIn } = props;
+  const { login } = props;
   return (
     <GoogleLogin
       clientId={GOOGLE_CLIENT_ID}
       render={renderProps => (
-        <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in to Google</button>
+        <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</button>
       )}
       buttonText="Login"
-      onSuccess={(response) => { successResponseGoogle(response).then(setIsSignedIn()) }}
+      onSuccess={(response) => { successResponseGoogle(response).then(() => login()) }}
       onFailure={failureResponseGoogle}
       cookiePolicy={'single_host_origin'}
     />

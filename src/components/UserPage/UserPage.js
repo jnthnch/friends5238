@@ -3,19 +3,32 @@ import store from 'store';
 import './UserPage.css';
 
 import isLoggedIn from '../../helpers/isLoggedIn'
+import { useGoogleLogout, GoogleLogout } from 'react-google-login'
+import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_ID_BAD } from '../../../constants'
+
+
+
+
 import GamesList from './GamesList';
 
 const UserPage = (props) => {
   const { history } = props
 
-  if (!isLoggedIn()) {
-    history.push('/login');
-  }
+  const { signOut } = useGoogleLogout({
+    clientId: GOOGLE_CLIENT_ID,
+    onFailure: () => { 'failed logout' },
+    onLogoutSuccess: () => { console.log('hook logout') }
+  })
 
-  const handleLogout = async () => {
-    await store.set('isLoggedIn', false)
-    history.push('/login');
-  };
+  // console.log('signOut is', signOut)
+  // if (!isLoggedIn()) {
+  //   history.push('/login');
+  // }
+
+  // const handleLogout = async () => {
+  //   await store.set('isLoggedIn', false)
+  //   history.push('/login');
+  // };
 
   const userName = store.get('user') ? store.get('user').name : 'user';
 
@@ -28,9 +41,18 @@ const UserPage = (props) => {
         <div>pending picks</div>
         <div>friends list</div>
       </div>
-      <button onClick={handleLogout} style={{ width: '5%' }}>
+      {/* <button onClick={handleLogout} style={{ width: '5%' }}>
         Sign Out
-      </button>
+      </button> */}
+      {/* <GoogleLogout
+        clientId='2533117684-dtmgnuekchkibat950i2tbm07loa4vpo.apps.googleusercontent.com'
+        onClick={signOut}
+        buttonText="Logout"
+        onLogoutSuccess={() => { console.log('onLogoutSuccess logout!') }}
+        onFailure={() => { console.log('onfailure !') }}
+        cookiePolicy={'single_host_origin'}
+      >
+      </GoogleLogout> */}
     </div>
   )
 };
