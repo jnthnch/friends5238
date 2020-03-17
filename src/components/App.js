@@ -1,38 +1,106 @@
-import React, { Component } from 'react';
-import "@babel/polyfill";
-import '../../public/style.css';
-import { Route, Link, Switch, withRouter } from "react-router-dom";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
+import store from 'store';
+import "regenerator-runtime/runtime.js";
 
-import HomePage from './HomePage';
-import LoginPage from './LoginPage';
-import UserPage from '../components/UserPage/UserPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './HomePage'
+import UserPage from './UserPage/UserPage';
+import LoginPage from './LoginPage/LoginPage'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className='main'>
+function App() {
+  return (
+    <Router>
+      <div>
+        <AuthButton />
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/login">Sign In Page</Link>
+            <Link to="/user-page">User Page</Link>
           </li>
         </ul>
+
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/user-page" component={UserPage} />
-          <Route component={NotFoundPage} />
+          <Route path="/home">
+            <HomePage />
+          </Route>
+          <Route path="/login">
+            <LoginPage userAuth={userAuth} />
+          </Route>
+          <PrivateRoute path="/user-page">
+            <ProtectedPage />
+          </PrivateRoute>
         </Switch>
-      </div >
-    );
+      </div>
+    </Router>
+  );
+}
+
+const userAuth = {
+  isAuthenticated: store.get('isLoggedIn'),
+  authenticate(cb) {
+    userAuth.isAuthenticated = true;
+    setTimeout(cb, 100); // fake async
+  },
+  signout(cb) {
+    userAuth.isAuthenticated = false;
+    setTimeout(cb, 100);
   }
+};
+
+function AuthButton() {
+  console.log('store isLoggedIn ==>', store.get('isLoggedIn'))
+  let history = useHistory();
+
+  return userAuth.isAuthenticated ? (
+    <div>
+      Welcome!{" "}
+      <button
+        onClick={() => {
+          userAuth.signout(() => {
+            store.set('isLoggedIn', false)
+            history.push("/")
+          });
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  ) : (
+      <p>You are not logged in.</p>
+    );
+}
+
+function PrivateRoute({ children, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        userAuth.isAuthenticated ? (
+          children
+        ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
+      }
+    />
+  );
+}
+
+function ProtectedPage() {
+  return <UserPage></UserPage>
 }
 
 export default App;
