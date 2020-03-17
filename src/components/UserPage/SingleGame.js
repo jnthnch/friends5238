@@ -11,12 +11,16 @@ const styles = {
   teams: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'gold'
+    justifyContent: 'space-around',
+    backgroundColor: 'gold',
+    height: 100
   },
   spreads: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    justifyContent: 'space-around',
+    height: 100
   }
 
 }
@@ -30,8 +34,8 @@ const SingleGame = (props) => {
         <div>{homeTeam}</div>
       </div>
       <div style={styles.spreads}>
-        <div>{awaySpread}</div>
-        <div>{homeSpread}</div>
+        <button>{awaySpread}</button>
+        <button>{homeSpread}</button>
       </div>
     </div>
   )

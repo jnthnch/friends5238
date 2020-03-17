@@ -19,6 +19,8 @@ const styles = {
     paddingRight: '5em'
   },
   unorderedList: {
+    display: 'flex',
+    flexDirection: 'column',
     paddingLeft: 0
   },
   gameColumnNames: {
@@ -27,8 +29,11 @@ const styles = {
   },
   gameBody: {},
   singleGameListItem: {
-    listStyleType: 'none',
-    paddingTop: 30
+    // listStyleType: 'none',
+    height: 100,
+    paddingTop: 20,
+    // paddingBottom: 100,
+    backgroundColor: 'green'
   }
 }
 
