@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GameButton from './GameButton'
+import { Button } from './Button.jsx'
 
 const styles = {
   main: {
@@ -37,8 +37,8 @@ const SingleGame = (props) => {
         <div>{homeTeam}</div>
       </div>
       <div style={styles.spreads}>
-        <GameButton awaySpread={awaySpread}></GameButton>
-        <button>{homeSpread}</button>
+        <Button>hello</Button>
+        <Button>{homeSpread}</Button>
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ const UserPage = (props) => {
 
   return (
     <div style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column' }}>
-      <h1>User Page - Welcome {userName}</h1>
+      <h1 style={{ fontFamily: 'Titillium Web' }}>User Page - Welcome {userName}</h1>
       <div className="user-page__main">
         <GamesList></GamesList>
         <div>results summary</div>

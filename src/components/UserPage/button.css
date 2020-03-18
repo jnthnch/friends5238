@@ -1,0 +1,16 @@
+:root {
+  --primary: rgb(247, 248, 253);
+  --selected: rgb(0, 121, 240);
+}
+
+.btn {
+  font-weight: 400;
+  border-radius: 10px;
+  cursor: pointer
+}
+
+.btn--primary--solid {
+  background-color: var(--primary);
+  color: var(--selected);
+  border: none;
+}
