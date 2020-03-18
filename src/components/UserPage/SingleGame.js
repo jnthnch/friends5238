@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import GameButton from './GameButton'
+
 const styles = {
   main: {
     display: 'flex',
@@ -18,9 +20,10 @@ const styles = {
   spreads: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'blue',
+    backgroundColor: 'skyblue',
     justifyContent: 'space-around',
-    height: 100
+    height: 100,
+    width: 100
   }
 
 }
@@ -34,7 +37,7 @@ const SingleGame = (props) => {
         <div>{homeTeam}</div>
       </div>
       <div style={styles.spreads}>
-        <button>{awaySpread}</button>
+        <GameButton awaySpread={awaySpread}></GameButton>
         <button>{homeSpread}</button>
       </div>
     </div>
